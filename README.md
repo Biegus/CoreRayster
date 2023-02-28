@@ -6,3 +6,4 @@ In progress.
 cargo run --release
 ```
 
+Gif creation works only on linux/wsl with imagemagic installed.
