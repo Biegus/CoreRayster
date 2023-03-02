@@ -44,6 +44,14 @@ fn make(quality: usize) {
             radius: 0.3,
             pos: Vec3f::new(-0.6, 0.0, 0.),
         };
+        let f = (k as f32) * 0.03;
+        let triangle = primitives::Triangle {
+            vertices: [
+                Vec3f::new(-0.4, 0.0 + f, 0.),
+                Vec3f::new(0.4, 0. + f, 0.),
+                Vec3f::new(0., 0.4 + f, 0.),
+            ],
+        };
 
         //println!("{}", mhelper::get_triangle_normal(&triangle));
         let scene = renderdata::Scene {
@@ -53,7 +61,7 @@ fn make(quality: usize) {
                 pos: mhelper::rotate_y(Vec3f::new(0.0, 0., -200.), (k as f32 / 100.) * 2. * PI),
             },
             entities: vec![PrimitiveSurface::new(
-                primitives::PrimitiveSurfaceGeometry::Sphere(sphere),
+                primitives::PrimitiveSurfaceGeometry::Triangle(triangle),
                 Vec3f::new(1., 0., 0.),
                 None,
             )],

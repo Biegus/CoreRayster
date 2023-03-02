@@ -38,7 +38,7 @@ pub fn hit_triangle(ray: Vec3f, ee: Vec3f, triangle: &Triangle) -> Option<Vec3f>
     let m = a * (e * i - h * f) + b * (g * f - d * i) + c * (d * h - e * g);
 
     let beta = (j * (e * i - h * f) + k * (g * f - d * i) + l * (d * h - e * g)) / m;
-    let gamma = (i * (a * -j * b) + h * (j * c - a * l) + g * (b * l - k * c)) / m;
+    let gamma = (i * (a * k - j * b) + h * (j * c - a * l) + g * (b * l - k * c)) / m;
     let t = -(f * (a * k - j * b) + e * (j * c - a * l) + d * (b * l - k * c)) / m;
 
     if beta >= 0. && beta <= 1. - gamma && gamma >= 0. && gamma <= 1. && t > 0. {
